@@ -1,0 +1,31 @@
+%h1 Listing gears
+
+%table
+  %thead
+    %tr
+      %th Category
+      %th Title
+      %th Name
+      %th Detail
+      %th Weight
+      %th Comment
+      %th
+      %th
+      %th
+
+  %tbody
+    - @gears.each do |gear|
+      %tr
+        %td= gear.category
+        %td= gear.title
+        %td= gear.name
+        %td= gear.detail
+        %td= gear.weight
+        %td= gear.comment
+        %td= link_to 'Show', gear
+        %td= link_to 'Edit', edit_gear_path(gear)
+        %td= link_to 'Destroy', gear, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Gear', new_gear_path

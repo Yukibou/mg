@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Category:
+  = @gear.category
+%p
+  %b Title:
+  = @gear.title
+%p
+  %b Name:
+  = @gear.name
+%p
+  %b Detail:
+  = @gear.detail
+%p
+  %b Weight:
+  = @gear.weight
+%p
+  %b Comment:
+  = @gear.comment
+
+= link_to 'Edit', edit_gear_path(@gear)
+\|
+= link_to 'Back', gears_path
