@@ -1,6 +1,6 @@
 %h1 Listing gears
 
-%table
+%table.table.table-striped.table-bordered
   %thead
     %tr
       %th Category
@@ -16,7 +16,7 @@
   %tbody
     - @gears.each do |gear|
       %tr
-        %td= gear.category
+        %td= gear.category.name
         %td= gear.title
         %td= gear.name
         %td= gear.detail
