@@ -62,16 +62,16 @@ class PackingListsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_packing_list
-      @packing_list = PackingList.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_packing_list
+    @packing_list = PackingList.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def packing_list_params
-      params.require(:packing_list).permit(
-          PackingList::REGISTRABLE_ATTRIBUTES +
-              [packing_list_gears_attributes: PackingListGear::REGISTRABLE_ATTRIBUTES]
-      )
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def packing_list_params
+    params.require(:packing_list).permit(
+        PackingList::REGISTRABLE_ATTRIBUTES +
+            [packing_list_gears_attributes: PackingListGear::REGISTRABLE_ATTRIBUTES]
+    )
+  end
 end

@@ -7,6 +7,32 @@
   %b Comment:
   = @packing_list.comment
 
+.col-sm-12
+  %hr/
+  %b ギア
+  %table.table.table-list
+    %thead
+      %tr
+        %th
+        %th
+        %th
+        %th
+        %th
+        %th
+    %tbody
+      - @packing_list.gears.each do |gear|
+        %tr
+          %td= gear.category.name
+          %td= gear.title
+          %td= gear.name
+          %td= gear.detail
+          %td= gear.weight
+          %td= gear.comment
+.col-sm-12
+%p
+  合計重量(g)：
+  = @packing_list.total_weight
+%hr
 = link_to 'Edit', edit_packing_list_path(@packing_list)
 \|
 = link_to 'Back', packing_lists_path

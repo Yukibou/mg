@@ -6,4 +6,8 @@ class PackingList < ApplicationRecord
 
   accepts_nested_attributes_for :packing_list_gears, allow_destroy: true
   REGISTRABLE_ATTRIBUTES = %i(title comment)
+
+  def total_weight
+    self.gears.map(&:weight).sum
+  end
 end
