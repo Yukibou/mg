@@ -69,6 +69,9 @@ class PackingListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def packing_list_params
-      params.require(:packing_list).permit(:title, :comment)
+      params.require(:packing_list).permit(
+          PackingList::REGISTRABLE_ATTRIBUTES +
+              [packing_list_gears_attributes: PackingListGear::REGISTRABLE_ATTRIBUTES]
+      )
     end
 end

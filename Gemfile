@@ -31,6 +31,7 @@ gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 gem 'fog'
+gem 'cocoon'
 
 group :development do
   gem 'better_errors'

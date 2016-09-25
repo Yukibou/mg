@@ -5,5 +5,24 @@
     = f.input :title
     = f.input :comment
 
+  .col-sm-12
+    %hr/
+    %b ギア
+    .text-right
+      = link_to_add_association 'カテゴリを追加', f, :packing_list_gears,         |
+        class: 'btn btn-default',                                          |
+        data: {                                                            |
+        association_insertion_node: '#detail-association-insertion-point', |
+        association_insertion_method: 'append' }
+    %table.table.table-list
+      %thead
+        %tr
+          %th
+          %th
+      %tbody#detail-association-insertion-point
+        .form-group
+          = f.fields_for :packing_list_gears do |pg|
+            = render 'packing_list_gear_fields', f: pg
+
   .form-actions
     = f.button :submit
