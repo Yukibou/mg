@@ -199,3 +199,19 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+
+# モデル名
+  activerecord:
+    models:
+      category: カテゴリ
+      gear: 道具
+
+# モデルの属性名
+  activerecord:
+    attributes:
+      gear:
+        title: タイトル
+        name: 品名
+        weight: 重量
+        detail: 詳細
+        comment: コメント
