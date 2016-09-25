@@ -4,6 +4,7 @@
   %thead
     %tr
       %th Category
+      %th Image
       %th
         = t('activerecord.attributes.gear.title')
       %th Name
@@ -18,6 +19,7 @@
     - @gears.each do |gear|
       %tr
         %td= gear.category.name
+        %td= image_tag gear.image.thumb
         %td= gear.title
         %td= gear.name
         %td= gear.detail

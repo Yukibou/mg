@@ -26,6 +26,11 @@ gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
 gem 'bootswatch-rails'
+
+gem 'carrierwave'
+gem 'rmagick', require: 'RMagick'
+gem 'fog'
+
 group :development do
   gem 'better_errors'
   gem 'foreman'

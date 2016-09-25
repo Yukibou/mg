@@ -4,4 +4,6 @@ class Gear < ApplicationRecord
   validates :title, presence: true
   validates :name, presence: true
   validates :weight, presence: true, numericality: true
+
+  mount_uploader :image, ImageUploader
 end

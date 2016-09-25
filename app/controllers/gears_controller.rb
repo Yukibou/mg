@@ -69,6 +69,6 @@ class GearsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gear_params
-      params.require(:gear).permit(:category_id, :title, :name, :detail, :weight, :comment)
+      params.require(:gear).permit(:category_id, :image, :title, :name, :detail, :weight, :comment)
     end
 end
