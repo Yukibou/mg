@@ -26,6 +26,7 @@ gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
 gem 'bootswatch-rails'
+gem 'dotenv-rails'
 
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
