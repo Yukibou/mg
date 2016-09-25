@@ -1,0 +1,23 @@
+%h1 Listing packing_lists
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Comment
+      %th
+      %th
+      %th
+
+  %tbody
+    - @packing_lists.each do |packing_list|
+      %tr
+        %td= packing_list.title
+        %td= packing_list.comment
+        %td= link_to 'Show', packing_list
+        %td= link_to 'Edit', edit_packing_list_path(packing_list)
+        %td= link_to 'Destroy', packing_list, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Packing list', new_packing_list_path

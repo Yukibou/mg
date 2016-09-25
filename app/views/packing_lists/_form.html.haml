@@ -1,0 +1,9 @@
+= simple_form_for(@packing_list) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :comment
+
+  .form-actions
+    = f.button :submit

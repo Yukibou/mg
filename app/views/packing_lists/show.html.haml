@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @packing_list.title
+%p
+  %b Comment:
+  = @packing_list.comment
+
+= link_to 'Edit', edit_packing_list_path(@packing_list)
+\|
+= link_to 'Back', packing_lists_path
