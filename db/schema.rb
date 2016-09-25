@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925105732) do
+ActiveRecord::Schema.define(version: 20160925110657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20160925105732) do
     t.datetime "updated_at",  null: false
     t.string   "image"
     t.index ["category_id"], name: "index_gears_on_category_id", using: :btree
+  end
+
+  create_table "packing_list_gears", force: :cascade do |t|
+    t.integer  "packing_list_id"
+    t.integer  "gear_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["gear_id"], name: "index_packing_list_gears_on_gear_id", using: :btree
+    t.index ["packing_list_id"], name: "index_packing_list_gears_on_packing_list_id", using: :btree
   end
 
   create_table "packing_lists", force: :cascade do |t|
@@ -64,4 +73,6 @@ ActiveRecord::Schema.define(version: 20160925105732) do
   end
 
   add_foreign_key "gears", "categories"
+  add_foreign_key "packing_list_gears", "gears"
+  add_foreign_key "packing_list_gears", "packing_lists"
 end
