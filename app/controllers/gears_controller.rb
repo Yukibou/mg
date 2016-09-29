@@ -4,7 +4,8 @@ class GearsController < ApplicationController
   # GET /gears
   # GET /gears.json
   def index
-    @gears = Gear.all
+    @search = Gear.search(params[:q])
+    @gears = @search.result
   end
 
   # GET /gears/1
