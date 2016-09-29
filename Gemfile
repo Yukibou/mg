@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 gem 'fog'
 gem 'cocoon'
+gem 'ransack'
 
 group :development do
   gem 'better_errors'
