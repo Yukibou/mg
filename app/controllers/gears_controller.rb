@@ -1,29 +1,21 @@
 class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
-  # GET /gears
-  # GET /gears.json
   def index
     @search = Gear.search(params[:q])
     @gears = @search.result
   end
 
-  # GET /gears/1
-  # GET /gears/1.json
   def show
   end
 
-  # GET /gears/new
   def new
     @gear = Gear.new
   end
 
-  # GET /gears/1/edit
   def edit
   end
 
-  # POST /gears
-  # POST /gears.json
   def create
     @gear = Gear.new(gear_params)
 
@@ -38,8 +30,6 @@ class GearsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /gears/1
-  # PATCH/PUT /gears/1.json
   def update
     respond_to do |format|
       if @gear.update(gear_params)
@@ -52,8 +42,6 @@ class GearsController < ApplicationController
     end
   end
 
-  # DELETE /gears/1
-  # DELETE /gears/1.json
   def destroy
     @gear.destroy
     respond_to do |format|
@@ -63,12 +51,10 @@ class GearsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_gear
       @gear = Gear.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def gear_params
       params.require(:gear).permit(:category_id, :image, :title, :name, :detail, :weight, :comment)
     end
