@@ -7,4 +7,7 @@ class Gear < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  def display_name
+    "#{title} / #{name}"
+  end
 end
