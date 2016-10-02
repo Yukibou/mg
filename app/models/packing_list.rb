@@ -13,4 +13,8 @@ class PackingList < ApplicationRecord
   def total_weight
     self.gears.map(&:weight).sum
   end
+
+  def total_weight_by_category(category)
+    self.gears.by_category(category).map(&:weight).sum
+  end
 end

@@ -1,10 +1,10 @@
 %p#notice= notice
 
 %p
-  %b Title:
+  %b= t('activerecord.attributes.packing_list.title') + ':'
   = @packing_list.title
 %p
-  %b Comment:
+  %b= t('activerecord.attributes.packing_list.comment') + ':'
   = @packing_list.comment
 
 .col-sm-12
@@ -21,17 +21,20 @@
         %th
         %th
         %th
-        %th
     %tbody
-      - @packing_list.gears.each do |gear|
+      - Category.all.each do |category|
         %tr
-          %td= gear.category.name
-          %td= image_tag gear.image.thumb
-          %td= gear.title
-          %td= gear.name
-          %td= gear.detail
-          %td= gear.weight
-          %td= gear.comment
+          %td{colspan: 5}= category.name
+        - @packing_list.gears.by_category(category).each do |gear|
+          %tr
+            %td= image_tag gear.image.thumb, width: '60'
+            %td= gear.title
+            %td= gear.name
+            %td= gear.detail
+            %td= gear.weight
+        %tr
+          %td{colspan: 4}
+          %td= "小計(g)： #{@packing_list.total_weight_by_category(category)}"
 .col-sm-12
 %p
   合計重量(g)：

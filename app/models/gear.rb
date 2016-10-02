@@ -9,6 +9,8 @@ class Gear < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  scope :by_category, ->(category_id) { where(category_id: category_id) }
+
   def display_name
     "#{title} / #{name}"
   end
