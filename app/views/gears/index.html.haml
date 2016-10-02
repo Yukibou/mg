@@ -1,4 +1,5 @@
 %h1 道具一覧
+= link_to '道具を登録する', new_gear_path
 .gear-search
   = search_form_for @search, html: { class: 'form-inline text-right' } do |f|
     = f.input :category_id_eq, collection: Category.all, label: false, include_blank: true
@@ -35,4 +36,4 @@
 
 %br
 
-= link_to 'New Gear', new_gear_path
+= link_to '道具を登録する', new_gear_path
