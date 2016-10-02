@@ -9,6 +9,9 @@
 # puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
 
+user = CreateAdminService.new.call
+puts 'CREATED ADMIN USER: ' << user.email
+
 CATEGORY_NAMEES = %w(衣 食 住 他)
 CATEGORY_NAMEES.each do |name|
   category = Category.find_or_initialize_by(name: name)
