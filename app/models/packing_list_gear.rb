@@ -4,7 +4,7 @@ class PackingListGear < ApplicationRecord
 
   REGISTRABLE_ATTRIBUTES = %i(id packing_list_id gear_id _destroy)
 
-  def selectable_gears
-    Gear.all
+  def selectable_gears(user)
+    user.gears.all
   end
 end

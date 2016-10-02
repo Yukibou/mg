@@ -4,7 +4,7 @@ class PackingListsController < ApplicationController
   # GET /packing_lists
   # GET /packing_lists.json
   def index
-    @packing_lists = PackingList.all
+    @packing_lists = current_user.packing_lists.all
   end
 
   # GET /packing_lists/1
@@ -14,7 +14,7 @@ class PackingListsController < ApplicationController
 
   # GET /packing_lists/new
   def new
-    @packing_list = PackingList.new
+    @packing_list = current_user.packing_lists.new
   end
 
   # GET /packing_lists/1/edit
@@ -24,7 +24,7 @@ class PackingListsController < ApplicationController
   # POST /packing_lists
   # POST /packing_lists.json
   def create
-    @packing_list = PackingList.new(packing_list_params)
+    @packing_list = current_user.packing_lists.new(packing_list_params)
 
     respond_to do |format|
       if @packing_list.save
