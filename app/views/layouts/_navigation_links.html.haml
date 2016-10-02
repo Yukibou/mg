@@ -1,3 +1,4 @@
-%ui
-  = link_to 'Packing List', packing_lists_path, class: 'navbar-brand'
-  = link_to 'Gears', gears_path, class: 'navbar-brand'
+- if user_signed_in?
+  %ui
+    = link_to 'Packing List', packing_lists_path, class: 'navbar-brand'
+    = link_to 'Gears', gears_path, class: 'navbar-brand'
