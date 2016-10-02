@@ -1,4 +1,4 @@
-%h1 Listing gears
+%h1 道具一覧
 .gear-search
   = search_form_for @search, html: { class: 'form-inline text-right' } do |f|
     = f.input :category_id_eq, collection: Category.all, label: false, include_blank: true
@@ -9,13 +9,12 @@
   %thead
     %tr
       %th= sort_link @search, :category_id, 'カテゴリ'
-      %th Image
-      %th
-        = t('activerecord.attributes.gear.title')
-      %th Name
-      %th Detail
+      %th= t('activerecord.attributes.gear.image')
+      %th= t('activerecord.attributes.gear.title')
+      %th= t('activerecord.attributes.gear.name')
+      %th= t('activerecord.attributes.gear.detail')
       %th= sort_link @search, :weight, '重量'
-      %th Comment
+      %th= t('activerecord.attributes.gear.comment')
       %th
       %th
       %th
