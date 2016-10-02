@@ -20,7 +20,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'devise-bootstrap-views'
 gem 'devise-i18n'
+gem 'devise-i18n-views'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'pg'
