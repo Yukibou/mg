@@ -2,7 +2,7 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = Gear.search(params[:q])
+    @search = current_user.gears.search(params[:q])
     @gears = @search.result
   end
 
@@ -10,14 +10,14 @@ class GearsController < ApplicationController
   end
 
   def new
-    @gear = Gear.new
+    @gear = current_user.gears.new
   end
 
   def edit
   end
 
   def create
-    @gear = Gear.new(gear_params)
+    @gear = current_user.gears.new(gear_params)
 
     respond_to do |format|
       if @gear.save
