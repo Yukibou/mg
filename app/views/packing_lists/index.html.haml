@@ -3,6 +3,7 @@
 %table.table.table-striped.table-bordered
   %thead
     %tr
+      %th= t('activerecord.attributes.packing_list.public')
       %th= t('activerecord.attributes.packing_list.title')
       %th= t('activerecord.attributes.packing_list.comment')
       %th
@@ -12,6 +13,7 @@
   %tbody
     - @packing_lists.each do |packing_list|
       %tr
+        %td= packing_list.public
         %td= packing_list.title
         %td= packing_list.comment
         %td= link_to 'Show', packing_list

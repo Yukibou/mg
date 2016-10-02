@@ -219,5 +219,6 @@ ja:
         comment: コメント
         category: カテゴリ
       packing_list:
+        public: 公開
         title: タイトル
         comment: コメント
