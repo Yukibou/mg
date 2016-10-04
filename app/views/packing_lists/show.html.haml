@@ -7,8 +7,9 @@
   %b= t('activerecord.attributes.packing_list.comment') + ':'
   = @packing_list.comment
 
-.col-sm-12
-  %a.btn{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 持ち物選択
+- if @packing_list.user == current_user
+  .col-sm-12
+    %a.btn{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 持ち物選択
 
 .col-sm-12
   %hr/
@@ -39,10 +40,12 @@
 %p
   合計重量(g)：
   = @packing_list.total_weight
-%hr
-= link_to 'Edit', edit_packing_list_path(@packing_list)
-\|
-= link_to 'Back', packing_lists_path
+
+- if @packing_list.user == current_user
+  %hr
+  = link_to 'Edit', edit_packing_list_path(@packing_list)
+  \|
+  = link_to 'Back', packing_lists_path
 
 #show_modal.modal.fade
   .modal-dialog
