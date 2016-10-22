@@ -56,6 +56,7 @@ end
 group :production do
   gem 'rails_12factor'
   gem 'unicorn'
+  gem 'google-analytics-rails'
 end
 group :test do
   gem 'capybara'
