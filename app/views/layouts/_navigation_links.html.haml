@@ -1,4 +1,6 @@
-- if user_signed_in?
-  %ui
-    = link_to 'Packing List', packing_lists_path, class: 'navbar-brand'
-    = link_to 'Gears', gears_path, class: 'navbar-brand'
+%ul.nav.navbar-nav
+  - if user_signed_in?
+    %li
+      = link_to 'マイパッキングリスト', packing_lists_path
+    %li
+      = link_to '私の道具たち', gears_path
