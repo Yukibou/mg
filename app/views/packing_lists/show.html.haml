@@ -29,7 +29,7 @@
                 = "#{category.name} ： #{@packing_list.total_weight_by_category(category)} g"
           - @packing_list.gears.by_category(category).each do |gear|
             %tr
-              %td= image_tag gear.image.thumb, width: '60'
+              %td= link_to image_tag(gear.image.thumb, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
               %td= gear.weight
               %td= gear.title
               %td= gear.name
