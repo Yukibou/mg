@@ -31,7 +31,7 @@ gem 'bootswatch-rails'
 gem 'dotenv-rails'
 
 gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
+gem 'rmagick', require: 'rmagick'
 gem 'fog'
 gem 'cocoon'
 gem 'ransack'
