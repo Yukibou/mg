@@ -1,9 +1,9 @@
-%p#notice= notice
-
 .row
   .col-sm-6
     %h2= @packing_list.title
     %p= @packing_list.comment
+    %h4.margin-top-30
+      = "合計 ： #{@packing_list.total_weight} g"
   .col-sm-6
     = image_tag @packing_list.image.eye_catch
 
@@ -17,31 +17,29 @@
       %thead
         %tr
           %th
-          %th
-          %th
-          %th
-          %th
+          %th= t('activerecord.attributes.gear.weight')
+          %th= t('activerecord.attributes.gear.title')
+          %th= t('activerecord.attributes.gear.name')
+          %th= t('activerecord.attributes.gear.detail')
       %tbody
         - Category.all.each do |category|
           %tr
-            %td{colspan: 5}= category.name
+            %td{colspan: 5}
+              %h4.margin-top-30
+                = "#{category.name} ： #{@packing_list.total_weight_by_category(category)} g"
           - @packing_list.gears.by_category(category).each do |gear|
             %tr
               %td= image_tag gear.image.thumb, width: '60'
+              %td= gear.weight
               %td= gear.title
               %td= gear.name
               %td= gear.detail
-              %td= gear.weight
-          %tr
-            %td{colspan: 4}
-            %td= "小計(g)： #{@packing_list.total_weight_by_category(category)}"
+.row
   .col-sm-12
-  %p
-    合計重量(g)：
-    = @packing_list.total_weight
+    %p
+      = "合計 ： #{@packing_list.total_weight} g"
 
   - if @packing_list.user == current_user
-    %hr
     = link_to 'Edit', edit_packing_list_path(@packing_list)
     \|
     = link_to 'Back', packing_lists_path
