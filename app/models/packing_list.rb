@@ -4,6 +4,8 @@ class PackingList < ApplicationRecord
   validates :title, presence: true
   validates :user, presence: true
 
+  mount_uploader :image, ImageUploader
+
   has_many :packing_list_gears, inverse_of: :packing_list, dependent: :destroy
   has_many :gears, through: :packing_list_gears
 
