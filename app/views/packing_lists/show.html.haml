@@ -1,51 +1,50 @@
 %p#notice= notice
 
-%p
-  %b= t('activerecord.attributes.packing_list.title') + ':'
-  = @packing_list.title
-%p
-  %b= t('activerecord.attributes.packing_list.comment') + ':'
-  = @packing_list.comment
+.row
+  .col-sm-6
+    %h2= @packing_list.title
+    %p= @packing_list.comment
+  .col-sm-6
+    = image_tag @packing_list.image.eye_catch
 
 - if @packing_list.user == current_user
-  .col-sm-12
+  .row
     %a.btn{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 持ち物選択
 
-.col-sm-12
-  %hr/
-  %b 持ち物
-  %table.table.table-list
-    %thead
-      %tr
-        %th
-        %th
-        %th
-        %th
-        %th
-    %tbody
-      - Category.all.each do |category|
+.row
+  .col-sm-12
+    %table.table.table-list
+      %thead
         %tr
-          %td{colspan: 5}= category.name
-        - @packing_list.gears.by_category(category).each do |gear|
+          %th
+          %th
+          %th
+          %th
+          %th
+      %tbody
+        - Category.all.each do |category|
           %tr
-            %td= image_tag gear.image.thumb, width: '60'
-            %td= gear.title
-            %td= gear.name
-            %td= gear.detail
-            %td= gear.weight
-        %tr
-          %td{colspan: 4}
-          %td= "小計(g)： #{@packing_list.total_weight_by_category(category)}"
-.col-sm-12
-%p
-  合計重量(g)：
-  = @packing_list.total_weight
+            %td{colspan: 5}= category.name
+          - @packing_list.gears.by_category(category).each do |gear|
+            %tr
+              %td= image_tag gear.image.thumb, width: '60'
+              %td= gear.title
+              %td= gear.name
+              %td= gear.detail
+              %td= gear.weight
+          %tr
+            %td{colspan: 4}
+            %td= "小計(g)： #{@packing_list.total_weight_by_category(category)}"
+  .col-sm-12
+  %p
+    合計重量(g)：
+    = @packing_list.total_weight
 
-- if @packing_list.user == current_user
-  %hr
-  = link_to 'Edit', edit_packing_list_path(@packing_list)
-  \|
-  = link_to 'Back', packing_lists_path
+  - if @packing_list.user == current_user
+    %hr
+    = link_to 'Edit', edit_packing_list_path(@packing_list)
+    \|
+    = link_to 'Back', packing_lists_path
 
 #show_modal.modal.fade
   .modal-dialog

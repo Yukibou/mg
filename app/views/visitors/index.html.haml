@@ -9,8 +9,10 @@
   .row
     - @packing_lists.each do |packing_list|
       .col-md-4.portfolio-item
-        %a{:href => "#"}
-          %img.img-responsive{:alt => "", :src => "http://placehold.it/700x400"}/
+        - if packing_list.image.eye_catch.present?
+          = image_tag packing_list.image.eye_catch, class: 'img-responsive'
+        - else
+          = image_tag "http://placehold.it/320x240", class: 'img-responsive'
         %h3= packing_list.title
         %h4= packing_list.user.name
         %p= packing_list.comment

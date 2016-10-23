@@ -3,6 +3,8 @@
 
   .form-inputs
     = f.input :public
+    = image_tag f.object.image.thumb
+    = f.input :image, as: :file
     = f.input :title
     = f.input :comment
 
