@@ -3,7 +3,6 @@
     .col-lg-12
       %h1.page-header
         山のパッキングリスト
-        %small みんなの気になるパッキングリスト
   /.row
   / Project One
   .row
@@ -14,7 +13,9 @@
         - else
           = image_tag "http://placehold.it/320x240", class: 'img-responsive'
         %h3= packing_list.title
-        %h4= packing_list.user.name
+        %h4
+          = packing_list.user.name
+          %span{style: "font-size: 13px;"}さん
         %p= packing_list.comment
         = link_to packing_list, class: 'btn btn-primary' do
           View Packing
