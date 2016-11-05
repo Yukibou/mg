@@ -25,6 +25,7 @@ class PackingList < ApplicationRecord
   def copy
     copy = self.dup
     copy.title = "#{self.title}のコピー"
+    copy.public = false
     copy.remove_image!
     self.gears.each do |gear|
       copy.gears << gear
