@@ -9,9 +9,9 @@
     = f.input :comment
 
   %hr/
-  .row
+  .form-inputs
     .text-left
-      = link_to_add_association '道具を追加', f, :packing_list_gears, class: 'btn btn-default btn-sm', data: { association_insertion_node: '#detail-association-insertion-point', association_insertion_method: 'append' }
+      = link_to_add_association '道具を追加', f, :packing_list_gears, class: 'btn btn-info btn-sm', data: { association_insertion_node: '#detail-association-insertion-point', association_insertion_method: 'append' }
     %table.table.table-list
       %thead
         %tr
@@ -22,7 +22,7 @@
           = f.fields_for :packing_list_gears do |pg|
             = render 'packing_list_gear_fields', f: pg
     .text-left
-      = link_to_add_association '道具を追加', f, :packing_list_gears, class: 'btn btn-default btn-sm', data: { association_insertion_node: '#detail-association-insertion-point', association_insertion_method: 'append' }
+      = link_to_add_association '道具を追加', f, :packing_list_gears, class: 'btn btn-info btn-sm', data: { association_insertion_node: '#detail-association-insertion-point', association_insertion_method: 'append' }
     %table.table.table-list
 
   .form-actions
