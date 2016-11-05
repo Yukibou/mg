@@ -4,6 +4,7 @@
   %thead
     %tr
       %th= t('activerecord.attributes.packing_list.public')
+      %th= t('activerecord.attributes.packing_list.updated_at')
       %th= t('activerecord.attributes.packing_list.image')
       %th= t('activerecord.attributes.packing_list.title')
       %th= t('activerecord.attributes.packing_list.comment')
@@ -15,6 +16,7 @@
     - @packing_lists.each do |packing_list|
       %tr
         %td= packing_list.public
+        %td= l packing_list.updated_at.to_date
         %td= image_tag packing_list.image.thumb
         %td= link_to packing_list.title, packing_list
         %td= packing_list.comment

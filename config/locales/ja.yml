@@ -221,4 +221,6 @@ ja:
       packing_list:
         public: 公開
         title: タイトル
+        image: 画像
         comment: コメント
+        updated_at: 最終更新日
