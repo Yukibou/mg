@@ -1,5 +1,5 @@
 class PackingListsController < ApplicationController
-  before_action :set_packing_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_packing_list, only: [:show, :edit, :update, :destroy, :copy]
 
   # GET /packing_lists
   # GET /packing_lists.json
@@ -59,6 +59,12 @@ class PackingListsController < ApplicationController
       format.html { redirect_to packing_lists_url, notice: 'Packing list was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def copy
+    copy_packinglist = @packing_list.copy
+    copy_packinglist.save
+    redirect_to packing_lists_url, notice: 'Packing list was successfully copied.'
   end
 
   private

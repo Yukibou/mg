@@ -21,4 +21,14 @@ class PackingList < ApplicationRecord
   def total_weight_by_category(category)
     self.gears.by_category(category).map(&:weight).sum
   end
+
+  def copy
+    copy = self.dup
+    copy.title = "#{self.title}のコピー"
+    copy.remove_image!
+    self.gears.each do |gear|
+      copy.gears << gear
+    end
+    copy
+  end
 end
