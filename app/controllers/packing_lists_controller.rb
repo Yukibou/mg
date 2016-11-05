@@ -4,7 +4,7 @@ class PackingListsController < ApplicationController
   # GET /packing_lists
   # GET /packing_lists.json
   def index
-    @packing_lists = current_user.packing_lists.all
+    @packing_lists = current_user.packing_lists.all.order(updated_at: :desc)
   end
 
   # GET /packing_lists/1
