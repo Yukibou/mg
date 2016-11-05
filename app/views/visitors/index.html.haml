@@ -12,6 +12,7 @@
           = link_to image_tag(packing_list.image.eye_catch, class: 'img-responsive'), packing_list.image.url, data: {lightbox: 'example-set', title: packing_list.title}
         - else
           = image_tag "http://placehold.it/320x240", class: 'img-responsive'
+        %h4= l packing_list.updated_at.to_date
         %h3= packing_list.title
         %h4
           = packing_list.user.name
