@@ -9,16 +9,14 @@
       %th= t('activerecord.attributes.packing_list.comment')
       %th
       %th
-      %th
 
   %tbody
     - @packing_lists.each do |packing_list|
       %tr
         %td= packing_list.public
         %td= image_tag packing_list.image.thumb
-        %td= packing_list.title
+        %td= link_to packing_list.title, packing_list
         %td= packing_list.comment
-        %td= link_to 'Show', packing_list
         %td= link_to 'Edit', edit_packing_list_path(packing_list)
         %td= link_to 'Destroy', packing_list, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
