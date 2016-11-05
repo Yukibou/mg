@@ -2,7 +2,7 @@ class GearsController < ApplicationController
   before_action :set_gear, only: [:show, :edit, :update, :destroy]
 
   def index
-    @search = current_user.gears.search(params[:q])
+    @search = current_user.gears.order(category_id: :asc, title: :asc).search(params[:q])
     @gears = @search.result
   end
 
