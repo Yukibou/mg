@@ -3,7 +3,7 @@ class User < ApplicationRecord
   after_initialize :set_default_role, if: :new_record?
 
   has_many :packing_lists, dependent: :delete_all
-  has_many :gears, dependent: :delete_all
+  has_many :gears, -> { order(category_id: :asc, title: :asc) }, dependent: :delete_all
 
   def set_default_role
     self.role ||= :user

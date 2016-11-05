@@ -6,8 +6,8 @@ class PackingList < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  has_many :packing_list_gears, inverse_of: :packing_list, dependent: :destroy
-  has_many :gears, through: :packing_list_gears
+  has_many :packing_list_gears, ->{ joins(:gear).order('gears.category_id asc, gears.title asc') }, inverse_of: :packing_list, dependent: :destroy
+  has_many :gears, ->{ order(category_id: :asc, title: :asc) }, through: :packing_list_gears
 
   accepts_nested_attributes_for :packing_list_gears, allow_destroy: true
   REGISTRABLE_ATTRIBUTES = %i(title comment public image)
