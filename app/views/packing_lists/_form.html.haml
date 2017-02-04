@@ -7,23 +7,12 @@
     = f.input :image, as: :file
     = f.input :title
     = f.input :comment
-
   %hr/
-  .form-inputs
-    .text-left
-      = link_to_add_association '道具を追加', f, :packing_list_gears, class: 'btn btn-info btn-sm', data: { association_insertion_node: '#detail-association-insertion-point', association_insertion_method: 'append' }
-    %table.table.table-list
-      %thead
-        %tr
-          %th
-          %th
-      %tbody#detail-association-insertion-point
-        .form-group
-          = f.fields_for :packing_list_gears do |pg|
-            = render 'packing_list_gear_fields', f: pg
-    .text-left
-      = link_to_add_association '道具を追加', f, :packing_list_gears, class: 'btn btn-info btn-sm', data: { association_insertion_node: '#detail-association-insertion-point', association_insertion_method: 'append' }
-    %table.table.table-list
+  .form-group
+    .checkbox
+      = f.collection_check_boxes :gear_ids, current_user.gears.all, :id, :display_name, boolean_style: :inline do |b|
+        = b.label { b.check_box + b.text }
+        %br
 
   .form-actions
     = f.button :submit
