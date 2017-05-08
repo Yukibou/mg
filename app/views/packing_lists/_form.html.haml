@@ -11,7 +11,8 @@
   .form-group
     .checkbox
       = f.collection_check_boxes :gear_ids, current_user.gears.all, :id, :display_name, boolean_style: :inline do |b|
-        = b.label { b.check_box + b.text }
+        -#- TODO:画像を小さくしてレイアウトを調整すること
+        = b.label { b.check_box + b.text + "#{image_tag(Gear.find(b.value).image.thumb)}".html_safe  }
         %br
 
   .form-actions
