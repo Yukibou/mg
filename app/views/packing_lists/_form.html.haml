@@ -15,4 +15,4 @@
           = b.label { b.check_box + "#{image_tag(Gear.find(b.value).image.thumb, width: '60')}".html_safe + b.text  }
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-primary'

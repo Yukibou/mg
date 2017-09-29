@@ -15,15 +15,13 @@
   %tbody
     - @packing_lists.each do |packing_list|
       %tr
-        %td= packing_list.public
+        %td= display_public(packing_list.public)
         %td= l packing_list.updated_at.to_date
         %td= image_tag packing_list.image.thumb
         %td= link_to packing_list.title, packing_list
         %td= packing_list.comment
-        %td= link_to 'Edit', edit_packing_list_path(packing_list)
-        %td= link_to 'Copy', copy_packing_list_path(packing_list)
-        %td= link_to 'Destroy', packing_list, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to t('link.Edit'), edit_packing_list_path(packing_list)
+        %td= link_to t('link.Copy'), copy_packing_list_path(packing_list)
+        %td= link_to t('link.Destroy'), packing_list, method: :delete, data: { confirm: t('link.confirm.delete') }
 
-%br
-
-= link_to 'New Packing list', new_packing_list_path
+= link_to t('link.New'), new_packing_list_path, class: 'btn btn-primary'

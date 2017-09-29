@@ -7,9 +7,9 @@
   .col-sm-6
     = image_tag @packing_list.image.eye_catch
 
-- if @packing_list.user == current_user
-  .row
-    %a.btn{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 持ち物選択
+-#- if @packing_list.user == current_user
+-#  .row
+-#    %a.btn{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 持ち物選択
 
 .row
   .col-sm-12
@@ -40,9 +40,9 @@
       = "合計 ： #{@packing_list.total_weight} g"
 
   - if @packing_list.user == current_user
-    = link_to 'Edit', edit_packing_list_path(@packing_list)
+    = link_to t('link.Edit'), edit_packing_list_path(@packing_list)
     \|
-    = link_to 'Back', packing_lists_path
+    = link_to t('link.Back'), packing_lists_path
 
 #show_modal.modal.fade
   .modal-dialog

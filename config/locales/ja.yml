@@ -1,4 +1,13 @@
 ja:
+  link:
+    New: 追加
+    Show: 表示
+    Edit: 編集
+    Destroy: 削除
+    Back: 前画面
+    Copy: コピー
+    confirm:
+      delete: 削除しますが、よろしいですか？
   activerecord:
     errors:
       messages:

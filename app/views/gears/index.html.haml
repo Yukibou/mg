@@ -1,5 +1,5 @@
 %h2 道具一覧
-= link_to '道具を登録する', new_gear_path
+= link_to '道具を登録する', new_gear_path, class: 'btn btn-primary'
 .gear-search
   = search_form_for @search, html: { class: 'form-inline text-right' } do |f|
     = f.input :category_id_eq, collection: Category.all, label: false, include_blank: true
@@ -18,8 +18,6 @@
       %th= t('activerecord.attributes.gear.comment')
       %th
       %th
-      %th
-
   %tbody
     - @gears.each do |gear|
       %tr
@@ -30,10 +28,7 @@
         %td= gear.detail
         %td= gear.weight
         %td= gear.comment
-        %td= link_to 'Show', gear
-        %td= link_to 'Edit', edit_gear_path(gear)
-        %td= link_to 'Destroy', gear, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to t('link.Edit'), edit_gear_path(gear)
+        %td= link_to t('link.Destroy'), gear, method: :delete, data: { confirm: t('link.confirm.delete') }
 
-%br
-
-= link_to '道具を登録する', new_gear_path
+= link_to '道具を登録する', new_gear_path, class: 'btn btn-primary'
