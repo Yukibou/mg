@@ -26,12 +26,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  # Process files as they are uploaded:
-  # process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
+  # ここでorientationの問題を解消しています
+  def auto
+    manipulate! do|image|
+      image.auto_orient
+    end
+  end
+  process :auto
 
   # Create different versions of your uploaded files:
   version :thumb do
