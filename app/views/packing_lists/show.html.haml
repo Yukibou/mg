@@ -6,11 +6,6 @@
       = "合計 ： #{@packing_list.total_weight} g"
   .col-sm-6
     = image_tag @packing_list.image.eye_catch
-
--#- if @packing_list.user == current_user
--#  .row
--#    %a.btn{"data-toggle" => "modal", :href => "#show_modal", :role => "button"} 持ち物選択
-
 .row
   .col-sm-12
     %table.table.table-list
@@ -38,21 +33,7 @@
   .col-sm-12
     %h3
       = "合計 ： #{@packing_list.total_weight} g"
-
   - if @packing_list.user == current_user
     = link_to t('link.Edit'), edit_packing_list_path(@packing_list)
     \|
     = link_to t('link.Back'), packing_lists_path
-
-#show_modal.modal.fade
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h3#modal_label 選択
-      .modal-body
-        %h4 テーマ
-        %p メッセージ
-      .modal-footer
-        %button.btn{"data-dismiss" => "modal"} Close
-        %button.btn.btn-primary Change
