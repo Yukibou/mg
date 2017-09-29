@@ -3,8 +3,6 @@
     .col-lg-12
       %h1.page-header
         山のパッキングリスト
-  /.row
-  / Project One
   .row.row-eq-height
     - @packing_lists.each do |packing_list|
       .col-md-4.portfolio-item
@@ -12,7 +10,9 @@
           = link_to image_tag(packing_list.image.eye_catch, class: 'img-responsive'), packing_list.image.url, data: {lightbox: 'example-set', title: packing_list.title}
         - else
           = image_tag "http://placehold.it/320x240", class: 'img-responsive'
-        %h4= l packing_list.updated_at.to_date
+        %h4
+          = l packing_list.updated_at.to_date
+          %span{style: "font-size: 13px;"}更新
         %h3= packing_list.title
         %h4
           = packing_list.user.name
@@ -22,7 +22,6 @@
           View Packing
           %span.glyphicon.glyphicon-chevron-right
   %hr/
-  / Footer
   %footer
     .row
       .col-lg-12
