@@ -9,12 +9,12 @@
 %table.table.table-striped.table-bordered
   %thead
     %tr
-      %th= sort_link @search, :category_id, 'カテゴリ'
+      %th= sort_link @search, :category_id, t('activerecord.attributes.gear.category')
       %th= t('activerecord.attributes.gear.image')
       %th= t('activerecord.attributes.gear.title')
       %th= t('activerecord.attributes.gear.name')
       %th= t('activerecord.attributes.gear.detail')
-      %th= sort_link @search, :weight, '重量'
+      %th= sort_link @search, :weight, t('activerecord.attributes.gear.weight')
       %th= t('activerecord.attributes.gear.comment')
       %th
       %th

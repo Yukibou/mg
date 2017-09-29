@@ -1,27 +1,42 @@
 %p#notice= notice
 
-%p
-  %b Category:
-  = @gear.category.name
-%p
-  %b Image:
-  = image_tag @gear.image, width: '240'
-%p
-  %b Title:
-  = @gear.title
-%p
-  %b Name:
-  = @gear.name
-%p
-  %b Detail:
-  = @gear.detail
-%p
-  %b Weight:
-  = @gear.weight
-%p
-  %b Comment:
-  = @gear.comment
+%table.table.table-bordered
+  %tr
+    %td
+      = t('activerecord.attributes.gear.category')
+    %td
+      = @gear.category.name
+  %tr
+    %td
+      = t('activerecord.attributes.gear.image')
+    %td
+      = image_tag @gear.image, width: '240'
+  %tr
+    %td
+      = t('activerecord.attributes.gear.title')
+    %td
+      = @gear.title
+  %tr
+    %td
+      = t('activerecord.attributes.gear.name')
+    %td
+      = @gear.name
+  %tr
+    %td
+      = t('activerecord.attributes.gear.detail')
+    %td
+      = @gear.detail
+  %tr
+    %td
+      = t('activerecord.attributes.gear.weight')
+    %td
+      = @gear.weight
+  %tr
+    %td
+      = t('activerecord.attributes.gear.comment')
+    %td
+      = @gear.comment
 
-= link_to 'Edit', edit_gear_path(@gear)
+= link_to t('link.Edit'), edit_gear_path(@gear)
 \|
-= link_to 'Back', gears_path
+= link_to t('link.Back'), gears_path
