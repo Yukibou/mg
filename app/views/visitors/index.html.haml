@@ -17,7 +17,7 @@
         %h4
           = packing_list.user.name
           %span{style: "font-size: 13px;"}さん
-        %p= packing_list.comment
+        %p= simple_format(packing_list.comment)
         = link_to packing_list, class: 'btn btn-primary' do
           View Packing
           %span.glyphicon.glyphicon-chevron-right

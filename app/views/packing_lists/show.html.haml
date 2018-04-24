@@ -1,7 +1,7 @@
 .row
   .col-sm-6
     %h2= @packing_list.title
-    %p= @packing_list.comment
+    %p= simple_format(@packing_list.comment)
     %h4.margin-top-30
       = "合計 ： #{@packing_list.total_weight} g"
   .col-sm-6
