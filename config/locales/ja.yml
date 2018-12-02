@@ -6,15 +6,9 @@ ja:
     Destroy: 削除
     Back: 前画面
     Copy: コピー
+    Index: 一覧
     confirm:
       delete: 削除しますが、よろしいですか？
-  activerecord:
-    errors:
-      messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
   date:
     abbr_day_names:
     - 日
@@ -209,15 +203,20 @@ ja:
       short: "%y/%m/%d %H:%M"
     pm: 午後
 
-# モデル名
   activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+# モデル名
     models:
       category: カテゴリ
       gear: 道具
       packing_list: パッキングリスト
 
 # モデルの属性名
-  activerecord:
     attributes:
       gear:
         title: タイトル
