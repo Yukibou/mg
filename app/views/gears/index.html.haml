@@ -26,7 +26,8 @@
         %td= gear.title
         %td= gear.name
         %td= gear.detail
-        %td= gear.weight
+        %td.text-right
+          = gear.weight
         %td= gear.comment
         %td= link_to t('link.Edit'), edit_gear_path(gear)
         %td= link_to t('link.Destroy'), gear, method: :delete, data: { confirm: t('link.confirm.delete') }

@@ -3,7 +3,7 @@
     %h2= @packing_list.title
     %p= simple_format(@packing_list.comment)
     %h4.margin-top-30
-      = "合計 ： #{@packing_list.total_weight} g"
+      = "合計：#{@packing_list.total_weight} g"
   .col-sm-6
     = image_tag @packing_list.image.eye_catch
 .row
@@ -25,14 +25,15 @@
           - @packing_list.gears.by_category(category).each do |gear|
             %tr
               %td= link_to image_tag(gear.image.thumb, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
-              %td= gear.weight
+              %td.text-right
+                = gear.weight
               %td= gear.title
               %td= gear.name
               %td= gear.detail
 .row
   .col-sm-12
     %h3
-      = "合計 ： #{@packing_list.total_weight} g"
+      = "合計：#{@packing_list.total_weight} g"
   - if @packing_list.user == current_user
     = link_to t('link.Edit'), edit_packing_list_path(@packing_list), class: 'btn btn-primary'
     \|
