@@ -1,10 +1,10 @@
 %h2 道具一覧
 = link_to '道具を登録する', new_gear_path, class: 'btn btn-primary'
 .gear-search
-  = search_form_for @search, html: { class: 'form-inline text-right' } do |f|
+  = search_form_for @search, html: { class: 'navbar-form navbar-left' } do |f|
     = f.input :category_id_eq, collection: Category.all, label: false, include_blank: true
     = f.input :name_cont, label: false, placeholder: '品名'
-    = f.button :submit
+    = f.submit '検索', class: 'btn btn-primary'
 
 %table.table.table-striped.table-bordered
   %thead
