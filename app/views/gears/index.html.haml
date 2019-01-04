@@ -11,10 +11,10 @@
     %tr
       %th= sort_link @search, :category_id, t('activerecord.attributes.gear.category')
       %th= t('activerecord.attributes.gear.image')
+      %th= sort_link @search, :weight, t('activerecord.attributes.gear.weight')
       %th= t('activerecord.attributes.gear.title')
       %th= t('activerecord.attributes.gear.name')
       %th= t('activerecord.attributes.gear.detail')
-      %th= sort_link @search, :weight, t('activerecord.attributes.gear.weight')
       %th= t('activerecord.attributes.gear.comment')
       %th
       %th
@@ -23,11 +23,11 @@
       %tr
         %td= gear.category.name
         %td= image_tag gear.image.thumb
+        %td.text-right
+          = gear.weight
         %td= gear.title
         %td= gear.name
         %td= gear.detail
-        %td.text-right
-          = gear.weight
         %td= gear.comment
         %td= link_to t('link.Edit'), edit_gear_path(gear)
         %td= link_to t('link.Destroy'), gear, method: :delete, data: { confirm: t('link.confirm.delete') }
