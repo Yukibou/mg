@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Mg
   class Application < Rails::Application
-
+    config.load_defaults 5.1
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -19,7 +19,6 @@ module Mg
         request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
-
     config.i18n.default_locale = :ja
 
     # Settings in config/environments/* take precedence over those specified here.
