@@ -222,7 +222,7 @@ ja:
         title: タイトル
         name: 品名
         image: 画像
-        weight: 重量
+        weight: 重量(g)
         detail: 詳細
         comment: コメント
         category: カテゴリ
