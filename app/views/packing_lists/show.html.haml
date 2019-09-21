@@ -5,7 +5,7 @@
     %h4.margin-top-30
       = "合計：#{@packing_list.total_weight} g"
   .col-sm-6
-    = image_tag @packing_list.image.eye_catch
+    = image_tag @packing_list.image.eye_catch.url unless @packing_list.image.eye_catch.url.nil?
 .row
   .col-sm-12
     %table.table.table-list
@@ -24,7 +24,7 @@
                 = "#{category.name} ： #{@packing_list.total_weight_by_category(category)} g"
           - @packing_list.gears.by_category(category).each do |gear|
             %tr
-              %td= link_to image_tag(gear.image.thumb, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
+              %td= link_to image_tag(gear.image.thumb.url, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
               %td.text-right
                 = gear.weight
               %td= gear.title

@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :public
-    = image_tag f.object.image.thumb
+    = image_tag f.object.image.thumb.url unless f.object.image.url.nil?
     = f.input :image, as: :file
     = f.input :title
     = f.input :comment
@@ -12,7 +12,10 @@
     .checkbox
       = f.collection_check_boxes :gear_ids, current_user.gears.all, :id, :display_name, boolean_style: :inline do |b|
         .view-select-gears
-          = b.label { b.check_box + "#{image_tag(Gear.find(b.value).image.thumb, width: '60')}".html_safe + b.text  }
+          - unless Gear.find(b.value).image.thumb.url.nil?
+            = b.label { b.check_box + "#{image_tag(Gear.find(b.value).image.thumb.url , width: '60')}".html_safe + b.text  }
+          - else
+            = b.label { b.check_box + b.text  }
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

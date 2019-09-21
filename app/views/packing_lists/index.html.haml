@@ -20,7 +20,7 @@
       %tr
         %td= display_public(packing_list.public)
         %td= l packing_list.updated_at.to_date
-        %td= image_tag packing_list.image.thumb
+        %td= image_tag packing_list.image.thumb.url unless packing_list.image.thumb.url.nil?
         %td= link_to packing_list.title, packing_list
         %td= packing_list.comment
         %td= link_to t('link.Edit'), edit_packing_list_path(packing_list)

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.5.5'
-gem 'rails', '~> 5.1.6.1'
+gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -35,6 +35,7 @@ gem 'rmagick', require: 'rmagick'
 gem 'fog'
 gem 'cocoon'
 gem 'ransack'
+gem 'bootsnap'
 
 group :development do
   gem 'better_errors'

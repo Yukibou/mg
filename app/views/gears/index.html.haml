@@ -22,7 +22,7 @@
     - @gears.each do |gear|
       %tr
         %td= gear.category.name
-        %td= image_tag gear.image.thumb
+        %td= image_tag gear.image.thumb.url unless gear.image.thumb.url.nil?
         %td.text-right
           = gear.weight
         %td= gear.title

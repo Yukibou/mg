@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.association :category
-    = image_tag f.object.image.thumb
+    = image_tag f.object.image.thumb.url unless f.object.image.thumb.url.nil?
     = f.input :image, as: :file
     = f.input :title
     = f.input :name
