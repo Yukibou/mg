@@ -26,6 +26,8 @@
             %tr
               - unless gear.image.thumb.url.nil?
                 %td= link_to image_tag(gear.image.thumb.url, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
+              - else
+                %td
               %td.text-right
                 = gear.weight
               %td= gear.title
