@@ -24,7 +24,8 @@
                 = "#{category.name} ： #{@packing_list.total_weight_by_category(category)} g"
           - @packing_list.gears.by_category(category).each do |gear|
             %tr
-              %td= link_to image_tag(gear.image.thumb.url, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
+              - unless gear.image.thumb.url.nil?
+                %td= link_to image_tag(gear.image.thumb.url, width: '60'), gear.image.url, data: {lightbox: 'gear-set', title: gear.title}
               %td.text-right
                 = gear.weight
               %td= gear.title
