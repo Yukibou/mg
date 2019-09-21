@@ -39,7 +39,6 @@ gem 'bootsnap'
 
 group :development do
   gem 'better_errors'
-  gem 'foreman'
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'rails_layout'
